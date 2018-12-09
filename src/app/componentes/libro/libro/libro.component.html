@@ -1,0 +1,44 @@
+<div class="tarjeta">
+    <h3>Librería</h3>
+    <a class="btn btn-primary float-md-right" routerLink="/addLibro">Añadir nuevo libro</a>
+    <br>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-hover table-responsive sortable" style="margin-top: 40px;">
+        <thead class="thead-dark">
+          <tr class="filters">
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Editorial</th>
+            <th>Edición</th>
+            <th>Genero</th>
+            <th>Nº Ejemplares</th>
+            <th>Nº Prestados</th>
+            <th>Nº Disponibles</th>
+            <th>ISBN</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let libro of libros">
+            <td>{{ libro.titulo }}</td>
+            <td>{{ libro.autor }}</td>
+            <td>{{ libro.editorial }}</td>
+            <td>{{ libro.edicion }}</td>
+            <td>{{ libro.genero }}</td>
+            <td>{{ libro.ejemplares }}</td>
+            <td>{{ libro.prestados }}</td>
+            <td>{{ libro.ejemplaresDisponibles }}</td>
+            <td>{{ libro.ISBN }}</td>
+            <td>
+              <button type="button" class="btn btn-success" routerLink="/editLibro/{{ libro.ISBN }}"  *ngIf="isLogged">Editar</button>
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="eliminarLibro(libro)"  *ngIf="isLogged">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark fixed-top">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#containerNavbar" aria-controls="containerNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Biblioteca Virtual</a>
+  <div class="collapse navbar-collapse" id="containerNavbar">
+    <ul class="navbar-nav mr-auto w-100 justify-content-end">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" routerLink="/">Inicio </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="../libro">Catalogo</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="../addLibro" *ngIf="isLogged">Añadir Libro</a>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-primary float-md-right" routerLink="/iniciosesion" *ngIf="!isLogged">Inicie sesión</button>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-primary float-md-right" routerLink="/" (click)="onLogout()" *ngIf="isLogged">Cerrar sesión</button>
+      </li>
+    </ul>
+  </div>
+</nav>

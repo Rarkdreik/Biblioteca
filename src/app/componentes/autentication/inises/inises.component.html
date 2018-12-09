@@ -1,0 +1,39 @@
+
+    <form [formGroup]="IniSesForm" (ngSubmit)="onSubmit()">
+
+      <h3 class="centrar"><i class="fa fa-user"></i> Inicia Sesión:</h3>
+      <hr>
+
+      <div class="form-group">
+        <label for="email">Correo
+          <i class="fa fa-envelope prefix check" *ngIf="!!IniSesForm.controls.email.valid"></i>
+          <i class="fa fa-envelope prefix" *ngIf="!!IniSesForm.controls.email.invalid && !IniSesForm.controls.email.touched"></i>
+          <i class="fa fa-envelope prefix uncheck" *ngIf="!!IniSesForm.controls.email.invalid && !!IniSesForm.controls.email.touched"></i>
+        </label>
+        <input type="email" class="form-control" id="email" formControlName="email" required="required">
+        <pre  class="alert alert-danger" *ngIf="!!IniSesForm.controls.email.invalid && !!IniSesForm.controls.email.touched">El Correo es obligatorio.<p>Minimo:   caracter @ caracter . dos letras:<br>Ejemplo:  a@a.es</p></pre>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña
+            <i class="fa fa-lock prefix check" *ngIf="!!IniSesForm.controls.password.valid"></i>
+            <i class="fa fa-lock prefix" *ngIf="!!IniSesForm.controls.password.invalid && !IniSesForm.controls.password.touched"></i>
+            <i class="fa fa-lock prefix uncheck" *ngIf="!!IniSesForm.controls.password.invalid && !!IniSesForm.controls.password.touched"></i>
+          </label>
+        <input type="password" class="form-control" id="password" formControlName="password" required="required">
+        <p class="alert alert-danger" *ngIf="!!IniSesForm.controls.password.invalid && !!IniSesForm.controls.password.touched">
+            El Contraseña es obligatoria.<br>
+            Debe contener entre 8 y 16 caracteres
+          </p>
+      </div>
+
+      <div class="centrar">
+        <button type="submit" class="btn btn-primary separar" routerLink="/iniciosesion" [disabled]="!IniSesForm.valid">Iniciar</button>
+        <button href="#" class="btn btn-social btn-google" (click)="onLoginGoogle()">
+          <span class="fa fa-google"></span>
+          GOOGLE
+        </button>
+      </div>
+      <br>
+      <h5 class="centrar tarjeta padding10">Si no tiene una cuenta pulse <a routerLink="/registro">aquí</a></h5>
+    </form>

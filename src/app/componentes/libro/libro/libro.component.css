@@ -1,0 +1,19 @@
+.tarjeta {
+  padding: 50px;
+}
+
+tr:hover {
+  background-color: rgba(21, 21, 21, 0.4) !important;
+}
+
+tr, td, th {
+  white-space: nowrap;
+}
+
+th {
+  cursor: pointer;
+}
+
+.table-responsive {
+  display: table;
+}

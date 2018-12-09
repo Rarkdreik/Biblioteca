@@ -1,0 +1,33 @@
+.tarjeta {
+  padding: 50px;
+}
+
+.separar > * > * > * {
+  margin-right: 5px;
+}
+
+.center {
+  text-align: center;
+}
+
+input.ng-invalid.ng-touched {
+  border-left: 5px solid #a94442;
+}
+
+input.ng-valid.ng-dirty {
+  border-left: 5px solid #42A948;
+}
+
+.check {
+  color: #42A948;
+}
+
+.uncheck {
+  color: #a94442;
+}
+
+.fila {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0;
+}

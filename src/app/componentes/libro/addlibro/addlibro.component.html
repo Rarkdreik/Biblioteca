@@ -1,0 +1,93 @@
+
+    <h2 class="center">Añadir nuevo libro</h2>
+      <a class="btn btn-primary float-md-right" routerLink="/libro">Regresar al listado</a>
+      <br>
+
+    <form [formGroup]="libroForm" (ngSubmit)="onSubmit()" class="separar center">
+
+      <div class="form-group">
+        <label for="ISBN">ISBN</label>
+        <i class="fa fa-check-circle check" *ngIf="!!libroForm.controls.ISBN.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="!!libroForm.controls.ISBN.invalid && !!libroForm.controls.ISBN.touched"></i>
+        <input type="text" class="form-control" id="ISBN" formControlName="ISBN" required="required">
+        <p class="alert alert-danger" *ngIf="!!libroForm.controls.ISBN.invalid && !!libroForm.controls.ISBN.touched">
+          El campo ISBN es obligatorio.
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="editorial">Editorial</label>
+        <i class="fa fa-check-circle check" *ngIf="!!libroForm.controls.editorial.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="!!libroForm.controls.editorial.invalid && !!libroForm.controls.editorial.touched"></i>
+        <input type="text" class="form-control" id="editorial" formControlName="editorial">
+        <p class="alert alert-danger" *ngIf="!!libroForm.controls.editorial.invalid && !!libroForm.controls.editorial.touched">
+          El campo Editorial es obligatorio.
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="edicion">Edicion</label>
+        <i class="fa fa-check-circle check" *ngIf="!!libroForm.controls.edicion.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="!!libroForm.controls.edicion.invalid && !!libroForm.controls.edicion.touched"></i>
+        <input type="text" class="form-control" id="edicion" formControlName="edicion">
+        <p class="alert alert-danger" *ngIf="!!libroForm.controls.edicion.invalid && !!libroForm.controls.edicion.touched">
+          El campo Edicion es obligatorio.
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="titulo">Titulo</label>
+        <i class="fa fa-check-circle check" *ngIf="!!libroForm.controls.titulo.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="!!libroForm.controls.titulo.invalid && !!libroForm.controls.titulo.touched"></i>
+        <input type="text" class="form-control" id="titulo" formControlName="titulo">
+        <p class="alert alert-danger" *ngIf="!!libroForm.controls.titulo.invalid && !!libroForm.controls.titulo.touched">
+          El campo Titulo es obligatorio.
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="autor">Autor</label>
+        <i class="fa fa-check-circle check" *ngIf="!!libroForm.controls.autor.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="!!libroForm.controls.autor.invalid && !!libroForm.controls.autor.touched"></i>
+        <input type="text" class="form-control" id="autor" formControlName="autor">
+        <p class="alert alert-danger" *ngIf="!!libroForm.controls.autor.invalid && !!libroForm.controls.autor.touched">
+          El campo Autor es obligatorio.
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="genero">Genero</label>
+        <i class="fa fa-check-circle check" *ngIf="!!libroForm.controls.genero.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="!!libroForm.controls.genero.invalid && !!libroForm.controls.genero.touched"></i>
+        <input type="text" class="form-control" id="genero" formControlName="genero">
+        <p class="alert alert-danger" *ngIf="!!libroForm.controls.genero.invalid && !!libroForm.controls.genero.touched">
+          El campo Genero es obligatorio.
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="ejemplares">Ejemplares</label>
+        <div class="fila">
+            <input type="number" class="form-control" id="ejemplares" formControlName="ejemplares" value="{{ libroForm.value.ejemplares }}" disabled>
+            <button class="btn btn-small" name="add-ejemplares" type="button" (click)="add_ejemplares()">+</button>
+            <button class="btn btn-small" name="less-ejemplares" type="button" (click)="less_ejemplares()">-</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="prestados">Prestados</label>
+        <div class="fila">
+          <input type="number" class="form-control reducido" id="prestados" formControlName="prestados" value="{{ libroForm.value.prestados }}" disabled>
+          <button class="btn btn-small" name="add-prestados" type="button" (click)="add_prestados()">+</button>
+          <button class="btn btn-small" name="less-prestados" type="button" (click)="less_prestados()">-</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="ejemplaresDisponibles">Ejemplares Disponibles</label>
+        <input type="number" class="form-control" id="ejemplaresDisponibles" formControlName="ejemplaresDisponibles" value="{{ libroForm.value.ejemplaresDisponibles }}" disabled>
+      </div>
+      <button type="submit" class="btn btn-primary separar" [disabled]="!libroForm.valid">Añadir libro</button>
+      <button type="button" class="btn btn-danger separar" routerLink="/libro">Cancelar</button>
+      <p class="alert alert-danger" *ngIf="!libroForm.valid">Por favor complete todos los campos</p>
+    </form>
